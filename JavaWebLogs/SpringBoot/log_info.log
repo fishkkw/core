@@ -1,0 +1,51 @@
+2019-12-09 00:42:58.285  [main] INFO  core.CoreApplication - Starting CoreApplication on WIN-CPKVI2247E5 with PID 13288 (D:\git\core\target\classes started by Administrator in D:\git\core)
+2019-12-09 00:42:58.288  [main] INFO  core.CoreApplication - No active profile set, falling back to default profiles: default
+2019-12-09 00:43:00.726  [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2019-12-09 00:43:00.740  [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2019-12-09 00:43:00.740  [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-12-09 00:43:00.752  [main] INFO  o.a.c.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\java\jre\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/java/jre/bin/server;C:/java/jre/bin;C:/java/jre/lib/amd64;E:\officeWare\client_1;E:\officeWare\client;C:\ProgramData\Oracle\Java\javapath;E:\officeWare\oracle11\product\11.2.0\dbhome_1\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;"C:\java\jdk1.8.0_131\bin;C:\java\jdk1.8.0_131\jre\bin;";C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;E:\officeWare\mysql-8.0.13-winx64;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;E:\officeWare\Microsoft VS Code\bin;C:\Users\Administrator\Desktop;;.]
+2019-12-09 00:43:00.867  [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-12-09 00:43:01.883  [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2019-12-09 00:43:01.895  [main] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-12-09 00:43:01.920  [main] INFO  core.CoreApplication - Started CoreApplication in 3.966 seconds (JVM running for 4.484)
+2019-12-09 00:43:06.694  [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-09 00:43:06.798  [http-nio-8080-exec-1] INFO  c.sys.controller.UserInfoController - selectByPrimaryKey start...
+2019-12-09 00:43:06.798  [http-nio-8080-exec-1] INFO  c.sys.controller.UserInfoController - selectByPrimaryKey end...
+2019-12-09 00:43:06.836  [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2019-12-09 00:43:07.037  [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2019-12-09 00:44:54.835  [main] INFO  core.CoreApplication - Starting CoreApplication on WIN-CPKVI2247E5 with PID 12600 (D:\git\core\target\classes started by Administrator in D:\git\core)
+2019-12-09 00:44:54.838  [main] INFO  core.CoreApplication - No active profile set, falling back to default profiles: default
+2019-12-09 00:44:58.650  [main] INFO  core.CoreApplication - Starting CoreApplication on WIN-CPKVI2247E5 with PID 864 (D:\git\core\target\classes started by Administrator in D:\git\core)
+2019-12-09 00:44:58.654  [main] INFO  core.CoreApplication - No active profile set, falling back to default profiles: default
+2019-12-09 00:45:01.309  [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2019-12-09 00:45:01.319  [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2019-12-09 00:45:01.319  [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-12-09 00:45:01.329  [main] INFO  o.a.c.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\java\jre\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/java/jre/bin/server;C:/java/jre/bin;C:/java/jre/lib/amd64;E:\officeWare\client_1;E:\officeWare\client;C:\ProgramData\Oracle\Java\javapath;E:\officeWare\oracle11\product\11.2.0\dbhome_1\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;"C:\java\jdk1.8.0_131\bin;C:\java\jdk1.8.0_131\jre\bin;";C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;E:\officeWare\mysql-8.0.13-winx64;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;E:\officeWare\Microsoft VS Code\bin;C:\Users\Administrator\Desktop;;.]
+2019-12-09 00:45:01.439  [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-12-09 00:45:02.384  [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2019-12-09 00:45:02.397  [main] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-12-09 00:45:02.425  [main] INFO  core.CoreApplication - Started CoreApplication in 4.125 seconds (JVM running for 4.649)
+2019-12-09 00:45:07.501  [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-09 00:45:07.539  [http-nio-8080-exec-1] INFO  c.w.interceptor.LoginInterceptor - 127.0.0.1-/account/selectUserByAccount start....
+2019-12-09 00:45:07.625  [http-nio-8080-exec-1] INFO  c.sys.controller.UserInfoController - selectByPrimaryKey start...
+2019-12-09 00:45:07.625  [http-nio-8080-exec-1] INFO  c.sys.controller.UserInfoController - selectByPrimaryKey end...
+2019-12-09 00:45:07.648  [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2019-12-09 00:45:07.889  [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2019-12-09 00:45:08.051  [http-nio-8080-exec-1] INFO  c.w.interceptor.LoginInterceptor - /account/selectUserByAccount end...
+2019-12-09 00:53:43.823  [main] INFO  core.CoreApplication - Starting CoreApplication on WIN-CPKVI2247E5 with PID 6180 (D:\core\target\classes started by Administrator in D:\core)
+2019-12-09 00:53:43.827  [main] INFO  core.CoreApplication - No active profile set, falling back to default profiles: default
+2019-12-09 00:53:45.827  [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2019-12-09 00:53:45.840  [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2019-12-09 00:53:45.841  [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-12-09 00:53:45.856  [main] INFO  o.a.c.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\java\jre\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/java/jre/bin/server;C:/java/jre/bin;C:/java/jre/lib/amd64;E:\officeWare\client_1;E:\officeWare\client;C:\ProgramData\Oracle\Java\javapath;E:\officeWare\oracle11\product\11.2.0\dbhome_1\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;"C:\java\jdk1.8.0_131\bin;C:\java\jdk1.8.0_131\jre\bin;";C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;E:\officeWare\mysql-8.0.13-winx64;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;E:\officeWare\Microsoft VS Code\bin;C:\Users\Administrator\Desktop;;.]
+2019-12-09 00:53:45.983  [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-12-09 00:53:47.342  [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2019-12-09 00:53:47.353  [main] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-12-09 00:53:47.377  [main] INFO  core.CoreApplication - Started CoreApplication in 3.895 seconds (JVM running for 4.419)
+2019-12-09 00:53:54.570  [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-09 00:53:54.609  [http-nio-8080-exec-1] INFO  c.w.interceptor.LoginInterceptor - 127.0.0.1-/account/selectUserByAccount start....
+2019-12-09 00:53:54.653  [http-nio-8080-exec-1] INFO  c.sys.controller.UserInfoController - selectByPrimaryKey start...
+2019-12-09 00:53:54.653  [http-nio-8080-exec-1] INFO  c.sys.controller.UserInfoController - selectByPrimaryKey end...
+2019-12-09 00:53:54.682  [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2019-12-09 00:53:54.842  [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2019-12-09 00:53:54.951  [http-nio-8080-exec-1] INFO  c.w.interceptor.LoginInterceptor - /account/selectUserByAccount end...
