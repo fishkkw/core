@@ -1,4 +1,4 @@
-package core.commont;
+package core.common;
 
 import java.util.List;
 

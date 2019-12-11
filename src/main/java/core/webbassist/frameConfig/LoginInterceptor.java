@@ -1,4 +1,4 @@
-package core.webbassist.interceptor;
+package core.webbassist.frameConfig;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,13 +10,13 @@ import org.springframework.web.servlet.HandlerInterceptor;
 
 @Component
 public class LoginInterceptor implements HandlerInterceptor {
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(LoginInterceptor.class);
 
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		logger.info(LoginInterceptor.getIpAddress(request) + "-"+request.getRequestURI() + " start....");
+		logger.info(LoginInterceptor.getIpAddress(request) + "-" + request.getRequestURI() + " start....");
 		return true;
 	}
 
@@ -46,6 +46,5 @@ public class LoginInterceptor implements HandlerInterceptor {
 		HandlerInterceptor.super.afterCompletion(request, response, handler, ex);
 		logger.info(request.getRequestURI() + " end...");
 	}
- 
 
 }
