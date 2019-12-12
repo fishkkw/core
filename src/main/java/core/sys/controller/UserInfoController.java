@@ -17,7 +17,7 @@ public class UserInfoController {
 
 	@RequestMapping(value = "/selectUserByAccount", method = RequestMethod.GET)
 	public Msg getAccount(String account) {
-		return Msg.success().add("user", userInfoImpl.selectByPrimaryKey(account));
+		return Msg.success(userInfoImpl.selectByPrimaryKey(account));
 	}
 
 }
