@@ -10,6 +10,7 @@ import core.sys.controller.UserInfoController;
 import core.sys.dao.UserInfoMapper;
 import core.sys.entity.UserInfo;
 import core.sys.service.UserInfoImpl;
+import core.webbassist.HostHolder;
 
 /**
  * 
@@ -34,6 +35,7 @@ public class IUserInfoImpl implements UserInfoImpl {
 	@Override
 	public UserInfo selectByPrimaryKey(String account) {
 		logger.info("selectByPrimaryKey start...");
+		logger.info("getMerchId:{}", HostHolder.getMerchId());
 		logger.info("selectByPrimaryKey end...");
 		return userInfoMapper.selectByPrimaryKey(account);
 	}

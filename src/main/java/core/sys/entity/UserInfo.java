@@ -1,7 +1,5 @@
 package core.sys.entity;
 
-import java.math.BigDecimal;
-
 public class UserInfo {
     /**
      * 账号
@@ -36,12 +34,16 @@ public class UserInfo {
     /**
      * 时间戳 创建时间
      */
-    private BigDecimal createTime;
+    private String createTime;
 
     /**
      * 备注
      */
     private String remark;
+
+    /**
+     */
+    private String merchId;
 
     public String getAccount() {
         return account;
@@ -91,12 +93,12 @@ public class UserInfo {
         this.email = email == null ? null : email.trim();
     }
 
-    public BigDecimal getCreateTime() {
+    public String getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(BigDecimal createTime) {
-        this.createTime = createTime;
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime == null ? null : createTime.trim();
     }
 
     public String getRemark() {
@@ -105,5 +107,13 @@ public class UserInfo {
 
     public void setRemark(String remark) {
         this.remark = remark == null ? null : remark.trim();
+    }
+
+    public String getMerchId() {
+        return merchId;
+    }
+
+    public void setMerchId(String merchId) {
+        this.merchId = merchId == null ? null : merchId.trim();
     }
 }

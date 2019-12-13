@@ -8,11 +8,12 @@
     <result column="enabled" jdbcType="CHAR" property="enabled" />
     <result column="tel" jdbcType="VARCHAR" property="tel" />
     <result column="email" jdbcType="VARCHAR" property="email" />
-    <result column="create_time" jdbcType="DECIMAL" property="createTime" />
+    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
     <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="merch_id" jdbcType="VARCHAR" property="merchId" />
   </resultMap>
   <sql id="Base_Column_List">
-    account, user_Name, password, enabled, tel, email, create_time, remark
+    account, user_Name, password, enabled, tel, email, create_time, remark, merch_id
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
@@ -27,10 +28,10 @@
   <insert id="insert" parameterType="core.sys.entity.UserInfo">
     insert into user_info (account, user_Name, password, 
       enabled, tel, email, create_time, 
-      remark)
+      remark, merch_id)
     values (#{account,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{enabled,jdbcType=CHAR}, #{tel,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{createTime,jdbcType=DECIMAL}, 
-      #{remark,jdbcType=VARCHAR})
+      #{enabled,jdbcType=CHAR}, #{tel,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{createTime,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{merchId,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="core.sys.entity.UserInfo">
     insert into user_info
@@ -59,6 +60,9 @@
       <if test="remark != null">
         remark,
       </if>
+      <if test="merchId != null">
+        merch_id,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="account != null">
@@ -80,10 +84,13 @@
         #{email,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null">
-        #{createTime,jdbcType=DECIMAL},
+        #{createTime,jdbcType=VARCHAR},
       </if>
       <if test="remark != null">
         #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="merchId != null">
+        #{merchId,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -106,10 +113,13 @@
         email = #{email,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null">
-        create_time = #{createTime,jdbcType=DECIMAL},
+        create_time = #{createTime,jdbcType=VARCHAR},
       </if>
       <if test="remark != null">
         remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="merchId != null">
+        merch_id = #{merchId,jdbcType=VARCHAR},
       </if>
     </set>
     where account = #{account,jdbcType=VARCHAR}
@@ -121,8 +131,9 @@
       enabled = #{enabled,jdbcType=CHAR},
       tel = #{tel,jdbcType=VARCHAR},
       email = #{email,jdbcType=VARCHAR},
-      create_time = #{createTime,jdbcType=DECIMAL},
-      remark = #{remark,jdbcType=VARCHAR}
+      create_time = #{createTime,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      merch_id = #{merchId,jdbcType=VARCHAR}
     where account = #{account,jdbcType=VARCHAR}
   </update>
 </mapper>

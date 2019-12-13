@@ -8,6 +8,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
+import core.webbassist.HostHolder;
+
 @Component
 public class LoginInterceptor implements HandlerInterceptor {
 
@@ -16,7 +18,8 @@ public class LoginInterceptor implements HandlerInterceptor {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		logger.info(LoginInterceptor.getIpAddress(request) + "-" + request.getRequestURI() + " start....");
+		logger.info(LoginInterceptor.getIpAddress(request) + "---" + HostHolder.getAccount() + "---"
+				+ request.getRequestURI() + " start....");
 		return true;
 	}
 

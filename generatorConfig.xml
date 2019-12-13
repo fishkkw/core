@@ -6,7 +6,7 @@
 	<properties resource="application.properties" />
 		<context id="DB2Tables" targetRuntime="MyBatis3">
 		
-		<plugin type="core.commont.MyBatisPlugin" >
+		<plugin type="core.common.MyBatisPlugin" >
             <property name="hasLombok" value="true"/>
         </plugin>
 		<!-- defaultModelType="flat" 联合主键不生成主键类 -->

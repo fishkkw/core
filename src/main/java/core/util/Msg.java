@@ -1,12 +1,9 @@
 package core.util;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class Msg {
-	private int code;
+	private Integer code;
 	private String msg;
-	private Map<String, Object> extend = new HashMap<>();
+	private Object data;
 
 	public static Msg success() {
 		Msg result = new Msg();
@@ -19,28 +16,23 @@ public class Msg {
 		Msg result = new Msg();
 		result.setCode(100);
 		result.setMsg("处理成功");
-		result.add("data", data);
-		return result;
-	}
-
-	public static Msg fail() {
-		Msg result = new Msg();
-		result.setCode(200);
-		result.setMsg("请求失败");
+		result.setData(data);
 		return result;
 	}
 
 	public static Msg fail(String errorMsg) {
 		Msg result = new Msg();
-		result.setCode(200);
+		result.setCode(0);
 		result.setMsg("请求失败");
-		result.add("errorMsg", errorMsg);
 		return result;
 	}
 
-	public Msg add(String key, Object value) {
-		this.getExtend().put(key, value);
-		return this;
+	public static Msg fail(Object data) {
+		Msg result = new Msg();
+		result.setCode(0);
+		result.setMsg("请求失败");
+		result.setData(data);
+		return result;
 	}
 
 	public int getCode() {
@@ -59,12 +51,12 @@ public class Msg {
 		this.msg = msg;
 	}
 
-	public Map<String, Object> getExtend() {
-		return extend;
+	public Object getData() {
+		return data;
 	}
 
-	public void setExtend(Map<String, Object> extend) {
-		this.extend = extend;
+	public void setData(Object data) {
+		this.data = data;
 	}
 
 }
