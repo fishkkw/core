@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="core.sys.dao.WxuserMapper">
+  <resultMap id="BaseResultMap" type="core.sys.entity.Wxuser">
+    <id column="openid" jdbcType="VARCHAR" property="openid" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+    <result column="mch_id" jdbcType="CHAR" property="mchId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    openid, nick_name, mch_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_wx_user
+    where openid = #{openid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from tb_wx_user
+    where openid = #{openid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="core.sys.entity.Wxuser">
+    insert into tb_wx_user (openid, nick_name, mch_id
+      )
+    values (#{openid,jdbcType=VARCHAR}, #{nickName,jdbcType=VARCHAR}, #{mchId,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="core.sys.entity.Wxuser">
+    insert into tb_wx_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="openid != null">
+        openid,
+      </if>
+      <if test="nickName != null">
+        nick_name,
+      </if>
+      <if test="mchId != null">
+        mch_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="openid != null">
+        #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="nickName != null">
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="mchId != null">
+        #{mchId,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="core.sys.entity.Wxuser">
+    update tb_wx_user
+    <set>
+      <if test="nickName != null">
+        nick_name = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="mchId != null">
+        mch_id = #{mchId,jdbcType=CHAR},
+      </if>
+    </set>
+    where openid = #{openid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="core.sys.entity.Wxuser">
+    update tb_wx_user
+    set nick_name = #{nickName,jdbcType=VARCHAR},
+      mch_id = #{mchId,jdbcType=CHAR}
+    where openid = #{openid,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="core.sys.dao.OrderMapper">
+  <resultMap id="BaseResultMap" type="core.sys.entity.Order">
+    <id column="order_no" jdbcType="CHAR" property="orderNo" />
+    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="wx_user_id" jdbcType="VARCHAR" property="wxUserId" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="total_fee" jdbcType="DOUBLE" property="totalFee" />
+    <result column="pay_type" jdbcType="BIT" property="payType" />
+    <result column="mch_id" jdbcType="CHAR" property="mchId" />
+    <result column="pay_time" jdbcType="VARCHAR" property="payTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    order_no, create_time, wx_user_id, status, total_fee, pay_type, mch_id, pay_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_order
+    where order_no = #{orderNo,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from tb_order
+    where order_no = #{orderNo,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="core.sys.entity.Order">
+    insert into tb_order (order_no, create_time, wx_user_id, 
+      status, total_fee, pay_type, 
+      mch_id, pay_time)
+    values (#{orderNo,jdbcType=CHAR}, #{createTime,jdbcType=VARCHAR}, #{wxUserId,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{totalFee,jdbcType=DOUBLE}, #{payType,jdbcType=BIT}, 
+      #{mchId,jdbcType=CHAR}, #{payTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="core.sys.entity.Order">
+    insert into tb_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderNo != null">
+        order_no,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="wxUserId != null">
+        wx_user_id,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="totalFee != null">
+        total_fee,
+      </if>
+      <if test="payType != null">
+        pay_type,
+      </if>
+      <if test="mchId != null">
+        mch_id,
+      </if>
+      <if test="payTime != null">
+        pay_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderNo != null">
+        #{orderNo,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="wxUserId != null">
+        #{wxUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="totalFee != null">
+        #{totalFee,jdbcType=DOUBLE},
+      </if>
+      <if test="payType != null">
+        #{payType,jdbcType=BIT},
+      </if>
+      <if test="mchId != null">
+        #{mchId,jdbcType=CHAR},
+      </if>
+      <if test="payTime != null">
+        #{payTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="core.sys.entity.Order">
+    update tb_order
+    <set>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="wxUserId != null">
+        wx_user_id = #{wxUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="totalFee != null">
+        total_fee = #{totalFee,jdbcType=DOUBLE},
+      </if>
+      <if test="payType != null">
+        pay_type = #{payType,jdbcType=BIT},
+      </if>
+      <if test="mchId != null">
+        mch_id = #{mchId,jdbcType=CHAR},
+      </if>
+      <if test="payTime != null">
+        pay_time = #{payTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where order_no = #{orderNo,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="core.sys.entity.Order">
+    update tb_order
+    set create_time = #{createTime,jdbcType=VARCHAR},
+      wx_user_id = #{wxUserId,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      total_fee = #{totalFee,jdbcType=DOUBLE},
+      pay_type = #{payType,jdbcType=BIT},
+      mch_id = #{mchId,jdbcType=CHAR},
+      pay_time = #{payTime,jdbcType=VARCHAR}
+    where order_no = #{orderNo,jdbcType=CHAR}
+  </update>
+</mapper>

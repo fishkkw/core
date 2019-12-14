@@ -1,6 +1,6 @@
 package core.sys.entity;
 
-public class UserInfo {
+public class User {
     /**
      * 账号
      */
@@ -17,9 +17,9 @@ public class UserInfo {
     private String password;
 
     /**
-     * 是否启用 1：启用，0：禁用
+     *  1：启用，0：禁用, -1：删除
      */
-    private String enabled;
+    private String status;
 
     /**
      * 电话
@@ -37,13 +37,9 @@ public class UserInfo {
     private String createTime;
 
     /**
-     * 备注
+     * 管理系统用户所属商户
      */
-    private String remark;
-
-    /**
-     */
-    private String merchId;
+    private String mchId;
 
     public String getAccount() {
         return account;
@@ -69,12 +65,12 @@ public class UserInfo {
         this.password = password == null ? null : password.trim();
     }
 
-    public String getEnabled() {
-        return enabled;
+    public String getStatus() {
+        return status;
     }
 
-    public void setEnabled(String enabled) {
-        this.enabled = enabled == null ? null : enabled.trim();
+    public void setStatus(String status) {
+        this.status = status == null ? null : status.trim();
     }
 
     public String getTel() {
@@ -101,19 +97,11 @@ public class UserInfo {
         this.createTime = createTime == null ? null : createTime.trim();
     }
 
-    public String getRemark() {
-        return remark;
+    public String getMchId() {
+        return mchId;
     }
 
-    public void setRemark(String remark) {
-        this.remark = remark == null ? null : remark.trim();
-    }
-
-    public String getMerchId() {
-        return merchId;
-    }
-
-    public void setMerchId(String merchId) {
-        this.merchId = merchId == null ? null : merchId.trim();
+    public void setMchId(String mchId) {
+        this.mchId = mchId == null ? null : mchId.trim();
     }
 }

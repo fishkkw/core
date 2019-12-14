@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-import core.sys.entity.UserInfo;
+import core.sys.entity.User;
 import core.webbassist.HostHolder;
 
 @Component
@@ -14,9 +14,9 @@ public class TicketInterceptor implements HandlerInterceptor {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		UserInfo userInfo = new UserInfo();
-		userInfo.setAccount("测试账号");
-		userInfo.setMerchId("XXXX-XXXX-XXXXX");
+		User userInfo = new User();
+		userInfo.setAccount("ceshizhanghao");
+		userInfo.setMchId("XXXX-XXXX-XXXXX");
 		HostHolder.setAccount(userInfo);
 		return true;
 	}

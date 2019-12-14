@@ -6,11 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
+import core.common.Environment;
 import core.sys.controller.UserInfoController;
-import core.sys.dao.UserInfoMapper;
-import core.sys.entity.UserInfo;
+import core.sys.dao.UserMapper;
+import core.sys.entity.User;
 import core.sys.service.UserInfoImpl;
-import core.webbassist.HostHolder;
 
 /**
  * 
@@ -24,7 +24,7 @@ public class IUserInfoImpl implements UserInfoImpl {
 	private static final Logger logger = LoggerFactory.getLogger(UserInfoController.class);
 
 	@Autowired
-	public UserInfoMapper userInfoMapper;
+	public UserMapper userInfoMapper;
 
 	/**
 	 * @author Administrator
@@ -33,9 +33,9 @@ public class IUserInfoImpl implements UserInfoImpl {
 	 * @return Userinfo 用户信息
 	 */
 	@Override
-	public UserInfo selectByPrimaryKey(String account) {
+	public User selectByPrimaryKey(String account) {
 		logger.info("selectByPrimaryKey start...");
-		logger.info("getMerchId:{}", HostHolder.getMerchId());
+		logger.info("getMerchId:{}", Environment.getMerchId());
 		logger.info("selectByPrimaryKey end...");
 		return userInfoMapper.selectByPrimaryKey(account);
 	}

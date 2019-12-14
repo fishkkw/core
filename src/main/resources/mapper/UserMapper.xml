@@ -1,52 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="core.sys.dao.UserInfoMapper">
-  <resultMap id="BaseResultMap" type="core.sys.entity.UserInfo">
+<mapper namespace="core.sys.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="core.sys.entity.User">
     <id column="account" jdbcType="VARCHAR" property="account" />
-    <result column="user_Name" jdbcType="VARCHAR" property="userName" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
     <result column="password" jdbcType="VARCHAR" property="password" />
-    <result column="enabled" jdbcType="CHAR" property="enabled" />
+    <result column="status" jdbcType="CHAR" property="status" />
     <result column="tel" jdbcType="VARCHAR" property="tel" />
     <result column="email" jdbcType="VARCHAR" property="email" />
     <result column="create_time" jdbcType="VARCHAR" property="createTime" />
-    <result column="remark" jdbcType="VARCHAR" property="remark" />
-    <result column="merch_id" jdbcType="VARCHAR" property="merchId" />
+    <result column="mch_id" jdbcType="CHAR" property="mchId" />
   </resultMap>
   <sql id="Base_Column_List">
-    account, user_Name, password, enabled, tel, email, create_time, remark, merch_id
+    account, user_name, password, status, tel, email, create_time, mch_id
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from user_info
+    from tb_user
     where account = #{account,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from user_info
+    delete from tb_user
     where account = #{account,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="core.sys.entity.UserInfo">
-    insert into user_info (account, user_Name, password, 
-      enabled, tel, email, create_time, 
-      remark, merch_id)
+  <insert id="insert" parameterType="core.sys.entity.User">
+    insert into tb_user (account, user_name, password, 
+      status, tel, email, create_time, 
+      mch_id)
     values (#{account,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{enabled,jdbcType=CHAR}, #{tel,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{createTime,jdbcType=VARCHAR}, 
-      #{remark,jdbcType=VARCHAR}, #{merchId,jdbcType=VARCHAR})
+      #{status,jdbcType=CHAR}, #{tel,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{createTime,jdbcType=VARCHAR}, 
+      #{mchId,jdbcType=CHAR})
   </insert>
-  <insert id="insertSelective" parameterType="core.sys.entity.UserInfo">
-    insert into user_info
+  <insert id="insertSelective" parameterType="core.sys.entity.User">
+    insert into tb_user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="account != null">
         account,
       </if>
       <if test="userName != null">
-        user_Name,
+        user_name,
       </if>
       <if test="password != null">
         password,
       </if>
-      <if test="enabled != null">
-        enabled,
+      <if test="status != null">
+        status,
       </if>
       <if test="tel != null">
         tel,
@@ -57,11 +56,8 @@
       <if test="createTime != null">
         create_time,
       </if>
-      <if test="remark != null">
-        remark,
-      </if>
-      <if test="merchId != null">
-        merch_id,
+      <if test="mchId != null">
+        mch_id,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -74,8 +70,8 @@
       <if test="password != null">
         #{password,jdbcType=VARCHAR},
       </if>
-      <if test="enabled != null">
-        #{enabled,jdbcType=CHAR},
+      <if test="status != null">
+        #{status,jdbcType=CHAR},
       </if>
       <if test="tel != null">
         #{tel,jdbcType=VARCHAR},
@@ -86,25 +82,22 @@
       <if test="createTime != null">
         #{createTime,jdbcType=VARCHAR},
       </if>
-      <if test="remark != null">
-        #{remark,jdbcType=VARCHAR},
-      </if>
-      <if test="merchId != null">
-        #{merchId,jdbcType=VARCHAR},
+      <if test="mchId != null">
+        #{mchId,jdbcType=CHAR},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="core.sys.entity.UserInfo">
-    update user_info
+  <update id="updateByPrimaryKeySelective" parameterType="core.sys.entity.User">
+    update tb_user
     <set>
       <if test="userName != null">
-        user_Name = #{userName,jdbcType=VARCHAR},
+        user_name = #{userName,jdbcType=VARCHAR},
       </if>
       <if test="password != null">
         password = #{password,jdbcType=VARCHAR},
       </if>
-      <if test="enabled != null">
-        enabled = #{enabled,jdbcType=CHAR},
+      <if test="status != null">
+        status = #{status,jdbcType=CHAR},
       </if>
       <if test="tel != null">
         tel = #{tel,jdbcType=VARCHAR},
@@ -115,25 +108,21 @@
       <if test="createTime != null">
         create_time = #{createTime,jdbcType=VARCHAR},
       </if>
-      <if test="remark != null">
-        remark = #{remark,jdbcType=VARCHAR},
-      </if>
-      <if test="merchId != null">
-        merch_id = #{merchId,jdbcType=VARCHAR},
+      <if test="mchId != null">
+        mch_id = #{mchId,jdbcType=CHAR},
       </if>
     </set>
     where account = #{account,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="core.sys.entity.UserInfo">
-    update user_info
-    set user_Name = #{userName,jdbcType=VARCHAR},
+  <update id="updateByPrimaryKey" parameterType="core.sys.entity.User">
+    update tb_user
+    set user_name = #{userName,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
-      enabled = #{enabled,jdbcType=CHAR},
+      status = #{status,jdbcType=CHAR},
       tel = #{tel,jdbcType=VARCHAR},
       email = #{email,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=VARCHAR},
-      remark = #{remark,jdbcType=VARCHAR},
-      merch_id = #{merchId,jdbcType=VARCHAR}
+      mch_id = #{mchId,jdbcType=CHAR}
     where account = #{account,jdbcType=VARCHAR}
   </update>
 </mapper>

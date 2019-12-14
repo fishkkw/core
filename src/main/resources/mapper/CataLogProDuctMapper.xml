@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="core.sys.dao.CataLogProDuctMapper">
+	<resultMap id="BaseResultMap"
+		type="core.sys.entity.CataLogProDuct">
+		<id column="product_id" jdbcType="CHAR" property="productId" />
+		<id column="catalog_id" jdbcType="CHAR" property="catalogId" />
+	</resultMap>
+	<delete id="deleteByPrimaryKey"
+		parameterType="core.sys.entity.CataLogProDuct">
+		delete from tb_catalog_product
+		where product_id = #{productId,jdbcType=CHAR}
+		and catalog_id = #{catalogId,jdbcType=CHAR}
+	</delete>
+	<insert id="insert"
+		parameterType="core.sys.entity.CataLogProDuct">
+		insert into tb_catalog_product (product_id, catalog_id)
+		values (#{productId,jdbcType=CHAR}, #{catalogId,jdbcType=CHAR})
+	</insert>
+</mapper>

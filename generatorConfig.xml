@@ -46,7 +46,7 @@
 		<!-- <table tableName="USER_INFO" domainObjectName="UserInfo"></table> -->
 
 		<!-- 不生成 Example类--> 
-		<table tableName="USER_INFO" domainObjectName="UserInfo" 
+		<table tableName="tb_wx_user" domainObjectName="Wxuser" 
 			enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" 
 			enableSelectByExample="false" selectByExampleQueryId="false"> </table>
 	</context>

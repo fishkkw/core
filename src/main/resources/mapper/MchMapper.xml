@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="core.sys.dao.MchMapper">
+  <resultMap id="BaseResultMap" type="core.sys.entity.Mch">
+    <id column="id" jdbcType="CHAR" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="trial_version" jdbcType="BIT" property="trialVersion" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="contact_name" jdbcType="VARCHAR" property="contactName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, create_time, trial_version, address, tel, contact_name
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_mch
+    where id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from tb_mch
+    where id = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="core.sys.entity.Mch">
+    insert into tb_mch (id, name, create_time, 
+      trial_version, address, tel, 
+      contact_name)
+    values (#{id,jdbcType=CHAR}, #{name,jdbcType=VARCHAR}, #{createTime,jdbcType=VARCHAR}, 
+      #{trialVersion,jdbcType=BIT}, #{address,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, 
+      #{contactName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="core.sys.entity.Mch">
+    insert into tb_mch
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="trialVersion != null">
+        trial_version,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="tel != null">
+        tel,
+      </if>
+      <if test="contactName != null">
+        contact_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="trialVersion != null">
+        #{trialVersion,jdbcType=BIT},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="contactName != null">
+        #{contactName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="core.sys.entity.Mch">
+    update tb_mch
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="trialVersion != null">
+        trial_version = #{trialVersion,jdbcType=BIT},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        tel = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="contactName != null">
+        contact_name = #{contactName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="core.sys.entity.Mch">
+    update tb_mch
+    set name = #{name,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=VARCHAR},
+      trial_version = #{trialVersion,jdbcType=BIT},
+      address = #{address,jdbcType=VARCHAR},
+      tel = #{tel,jdbcType=VARCHAR},
+      contact_name = #{contactName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=CHAR}
+  </update>
+</mapper>

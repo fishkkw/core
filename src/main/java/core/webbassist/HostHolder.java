@@ -1,23 +1,23 @@
 package core.webbassist;
 
-import core.sys.entity.UserInfo;
+import core.sys.entity.User;
 
 public class HostHolder {
-	private static ThreadLocal<UserInfo> userInfos = new ThreadLocal<>();
+	private static ThreadLocal<User> userInfos = new ThreadLocal<>();
 
-	public static UserInfo getUserInfo() {
+	public static User getUserInfo() {
 		return userInfos.get();
 	}
 
 	public static String getMerchId() {
-		return userInfos.get().getMerchId();
+		return userInfos.get().getMchId();
 	}
 
 	public static String getAccount() {
 		return userInfos.get().getAccount();
 	}
 
-	public static void setAccount(UserInfo userInfo) {
+	public static void setAccount(User userInfo) {
 		userInfos.set(userInfo);
 	}
 
