@@ -10,13 +10,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.alibaba.fastjson.JSONObject;
-
 import core.common.Environment;
 import core.sys.dao.CataLogMapper;
 import core.sys.entity.CataLog;
 import core.util.DateUtils;
 import core.util.Msg;
+import core.util.ParamCheckUtil;
 
 @RestController
 @RequestMapping("/catalog")
@@ -26,7 +25,7 @@ public class CataLogController {
 	private CataLogMapper cataLogMapper;
 
 	@RequestMapping(value = "/addcatalog", method = RequestMethod.POST)
-	public Msg insert(@RequestParam(value = "file", required = true) MultipartFile file,
+	public Msg addcatalog(@RequestParam(value = "file", required = true) MultipartFile file,
 			@RequestParam(value = "name", required = true) String name,
 			@RequestParam(value = "sort", required = true) String sort,
 			@RequestParam(value = "remark", required = true) String remark) throws Exception {
@@ -44,6 +43,9 @@ public class CataLogController {
 		 * Msg.fail("参数校验不通过") 
 		 * 11 后台启动swagger地址 http://localhost:8080/swagger-ui.html#!/
 		 */
+		if(ParamCheckUtil.checkName(name)) {
+			return Msg.fail("11111111111111");
+		}
 		try {
 			InputStream inputStream = file.getInputStream();
 			byte[] pictureData = new byte[(int) file.getSize()];
