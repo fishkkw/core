@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import core.sys.service.UserInfoImpl;
+import core.sys.service.UserInfoService;
 import core.util.Msg;
 
 @RestController
@@ -13,11 +13,11 @@ import core.util.Msg;
 public class UserInfoController {
 
 	@Autowired
-	private UserInfoImpl userInfoImpl;
+	private UserInfoService userInfoService;
 
 	@RequestMapping(value = "/selectUserByAccount", method = RequestMethod.GET)
 	public Msg getAccount(String account) {
-		return Msg.success(userInfoImpl.selectByPrimaryKey(account));
+		return Msg.success(userInfoService.selectByPrimaryKey(account));
 	}
 
 }

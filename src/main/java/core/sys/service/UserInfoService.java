@@ -2,6 +2,6 @@ package core.sys.service;
 
 import core.sys.entity.User;
 
-public interface UserInfoImpl {
+public interface UserInfoService {
 	public User selectByPrimaryKey(String account);
 }

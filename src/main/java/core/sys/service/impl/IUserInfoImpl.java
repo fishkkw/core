@@ -10,7 +10,7 @@ import core.common.Environment;
 import core.sys.controller.UserInfoController;
 import core.sys.dao.UserMapper;
 import core.sys.entity.User;
-import core.sys.service.UserInfoImpl;
+import core.sys.service.UserInfoService;
 
 /**
  * 
@@ -19,7 +19,7 @@ import core.sys.service.UserInfoImpl;
  */
 @Service
 @Repository("userInfoService")
-public class IUserInfoImpl implements UserInfoImpl {
+public class IUserInfoImpl implements UserInfoService {
 
 	private static final Logger logger = LoggerFactory.getLogger(UserInfoController.class);
 

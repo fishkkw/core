@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import core.common.Environment;
-import core.sys.dao.CataLogMapper;
 import core.sys.entity.CataLog;
+import core.sys.service.CataLogService;
 import core.util.DateUtils;
 import core.util.Msg;
 import core.util.ParamCheckUtil;
@@ -22,10 +22,15 @@ import core.util.ParamCheckUtil;
 public class CataLogController {
 
 	@Autowired
-	private CataLogMapper cataLogMapper;
+	private CataLogService cataLogService;
+	
+	@RequestMapping(value = "/getCataLogByMchId", method = RequestMethod.GET)
+	public Object getCataLogByMchId(@RequestParam String mchId) throws Exception {
+		return cataLogService.getCataLogByMchId(mchId).get(0).getImage();
+	}
 
-	@RequestMapping(value = "/addcatalog", method = RequestMethod.POST)
-	public Msg addcatalog(@RequestParam(value = "file", required = true) MultipartFile file,
+	@RequestMapping(value = "/addCataLog", method = RequestMethod.POST)
+	public Msg addCataLog(@RequestParam(value = "file", required = true) MultipartFile file,
 			@RequestParam(value = "name", required = true) String name,
 			@RequestParam(value = "sort", required = true) String sort,
 			@RequestParam(value = "remark", required = true) String remark) throws Exception {
@@ -35,7 +40,7 @@ public class CataLogController {
 		 * 3.商品分类名称校验 3.1 是否存在 3.2 是否合规 只能输入中英文长度不大于限定值
 		 * 4.sort 序号？ 如果前端能够提供 省很多事情 校验数字 三位 合规 
 		 * 5.id 主键生成待定。UUID36位。可自增 可自定义生成唯一标识
-		 * 6.remark 备注 只允许中英文+，。（）{}[] 
+		 * 6.remark 备注 只允许中英文+，。（）{}[]
 		 * 7.预留文件压缩 
 		 * 8.Environment.getAccount() 从环境中获取账号信息 固定写死ceshizhanghao 
 		 * 9.Environment.getMerchId() 从环境中获取商户信息 现固定写死XXXX-XXX-XXXX
@@ -60,8 +65,8 @@ public class CataLogController {
 			record.setIsEnable(false);
 			record.setIsDel(false);
 			record.setCreateUser(Environment.getAccount());
-			record.setId("2");
-			cataLogMapper.insertSelective(record);
+			record.setId(String.valueOf(System.currentTimeMillis()));
+			cataLogService.insertSelective(record);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
