@@ -1,8 +1,5 @@
 package core.sys.controller;
 
-import java.io.InputStream;
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -10,26 +7,26 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import core.common.Environment;
-import core.sys.entity.CataLog;
 import core.sys.service.CataLogService;
-import core.util.DateUtils;
 import core.util.Msg;
 import core.util.ParamCheckUtil;
 
 @RestController
 @RequestMapping("/catalog")
 public class CataLogController {
-
+	
 	@Autowired
 	private CataLogService cataLogService;
 	
-	@RequestMapping(value = "/getCataLogByMchId", method = RequestMethod.GET)
-	public Object getCataLogByMchId(@RequestParam String mchId) throws Exception {
-		return cataLogService.getCataLogByMchId(mchId).get(0).getImage();
+	@RequestMapping(value = "/getcatalogbymchId", method = RequestMethod.GET)
+	public Msg getCataLogByMchIdShow(@RequestParam String mchId) throws Exception {
+		if(ParamCheckUtil.isBlank(mchId)) {
+			return Msg.fail("参数异常");
+		}
+		return Msg.success(cataLogService.selectCataLogByMchIdShow(mchId));
 	}
 
-	@RequestMapping(value = "/addCataLog", method = RequestMethod.POST)
+	@RequestMapping(value = "/addcatalog", method = RequestMethod.POST)
 	public Msg addCataLog(@RequestParam(value = "file", required = true) MultipartFile file,
 			@RequestParam(value = "name", required = true) String name,
 			@RequestParam(value = "sort", required = true) String sort,
@@ -51,25 +48,10 @@ public class CataLogController {
 		if(ParamCheckUtil.checkName(name)) {
 			return Msg.fail("11111111111111");
 		}
-		try {
-			InputStream inputStream = file.getInputStream();
-			byte[] pictureData = new byte[(int) file.getSize()];
-			inputStream.read(pictureData);
-			CataLog record = new CataLog();
-			record.setImage(pictureData);
-			record.setMchId(Environment.getMerchId());
-			record.setCreateTime(DateUtils.dateTimeToDateStringIfTimeEndZero(new Date()));
-			record.setName(name);
-			record.setSort(sort);
-			record.setRemark(remark);
-			record.setIsEnable(false);
-			record.setIsDel(false);
-			record.setCreateUser(Environment.getAccount());
-			record.setId(String.valueOf(System.currentTimeMillis()));
-			cataLogService.insertSelective(record);
-		} catch (Exception e) {
-			e.printStackTrace();
+		if(cataLogService.insertSelective(file, name, sort, remark)) {
+			return Msg.success();
+		} else {
+			return Msg.fail();
 		}
-		return Msg.success();
 	}
 }

@@ -10,11 +10,29 @@ public class HostHolder {
 	}
 
 	public static String getMerchId() {
-		return userInfos.get().getMchId();
+		try {
+			if (userInfos.get() == null) {
+				return null;
+			}
+			return userInfos.get().getMchId();
+		} catch (NullPointerException e) {
+			/// 不推荐
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	public static String getAccount() {
-		return userInfos.get().getAccount();
+		try {
+			if (userInfos.get() == null) {
+				return null;
+			}
+			return userInfos.get().getAccount();
+		} catch (NullPointerException e) {
+			/// 不推荐
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	public static void setAccount(User userInfo) {

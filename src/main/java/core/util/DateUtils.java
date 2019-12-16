@@ -105,11 +105,7 @@ public class DateUtils {
 	 */
 	public static String dateTimeToDateStringIfTimeEndZero(Date dateTime) throws ParseException {
 		String dateTimeString = DateUtils.dateFormat(dateTime, DateUtils.DATE_TIME_PATTERN);
-		if (dateTimeString.endsWith("00:00:00")) {
-			return dateTimeString.substring(0, 10);
-		} else {
-			return dateTimeString;
-		}
+		return dateTimeString;
 	}
 
 	/**

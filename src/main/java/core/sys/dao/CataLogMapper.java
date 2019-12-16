@@ -6,6 +6,8 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.alibaba.fastjson.JSONObject;
+
 @Mapper
 public interface CataLogMapper {
 	int deleteByPrimaryKey(String id);
@@ -16,7 +18,7 @@ public interface CataLogMapper {
 
 	CataLog selectByPrimaryKey(String id);
 
-	List<CataLog> selectCataLogByMchId(String mchId);
+	List<JSONObject> selectCataLogByMchIdShow(String mchId);
 
 	int updateByPrimaryKeySelective(CataLog record);
 

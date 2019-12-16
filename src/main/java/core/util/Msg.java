@@ -19,7 +19,14 @@ public class Msg {
 		result.setData(data);
 		return result;
 	}
-
+	
+	public static Msg fail() {
+		Msg result = new Msg();
+		result.setCode(0);
+		result.setMsg("请求失败");
+		return result;
+	}
+	
 	public static Msg fail(String errorMsg) {
 		Msg result = new Msg();
 		result.setCode(0);

@@ -15,7 +15,7 @@ public class UserInfoController {
 	@Autowired
 	private UserInfoService userInfoService;
 
-	@RequestMapping(value = "/selectUserByAccount", method = RequestMethod.GET)
+	@RequestMapping(value = "/selectuserbyaccount", method = RequestMethod.GET)
 	public Msg getAccount(String account) {
 		return Msg.success(userInfoService.selectByPrimaryKey(account));
 	}
