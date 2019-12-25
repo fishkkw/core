@@ -40,4 +40,9 @@ public class IUserInfoImpl implements UserInfoService {
 		return userInfoMapper.selectByPrimaryKey(account);
 	}
 
+	@Override
+	public boolean addUser(User user) {
+		return userInfoMapper.insert(user) > 0;
+	}
+
 }

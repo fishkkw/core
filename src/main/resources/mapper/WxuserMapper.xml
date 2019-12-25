@@ -9,7 +9,7 @@
   <sql id="Base_Column_List">
     openid, nick_name, mch_id
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.String">
     select 
     <include refid="Base_Column_List" />
     from tb_wx_user

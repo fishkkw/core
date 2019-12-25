@@ -11,7 +11,7 @@ public interface WxuserMapper {
 
     int insertSelective(Wxuser record);
 
-    Wxuser selectByPrimaryKey(String openid);
+    int selectByPrimaryKey(String openid);
 
     int updateByPrimaryKeySelective(Wxuser record);
 

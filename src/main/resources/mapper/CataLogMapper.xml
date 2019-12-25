@@ -23,12 +23,12 @@
 		<result column="image" jdbcType="BINARY" property="image" />
 	</resultMap>
 	<sql id="Base_Column_List">
-		id, name, mch_id, sort, remark, create_time, create_user, modify_time,
+		id, name, mch_id, sort, remark, create_time, create_user, modify_time
 		modify_user,
 		is_enable, is_del
 	</sql>
 	<sql id="Base_Select_List">
-		id, name, mch_id, sort, remark
+		id, name, mch_id, sort, remark, create_time, modify_time, create_user, modify_user, is_enable
 	</sql>
 	<sql id="Blob_Column_List">
 		image
@@ -51,7 +51,7 @@
 		<include refid="Base_Select_List" />
 		from tb_catalog
 		where mch_id = #{mchId,jdbcType=CHAR}
-		and is_enable = 0 and is_del = 0
+		and is_enable = 1 and is_del = 0
 	</select>
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
 		delete from tb_catalog
