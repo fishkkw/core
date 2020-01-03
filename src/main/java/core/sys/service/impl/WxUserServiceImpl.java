@@ -66,7 +66,7 @@ public class WxUserServiceImpl implements WxUserService {
                     wxuser.setProvince(userInfo.getString("province"));
                     wxuser.setCountry( userInfo.getString("country"));
                     wxuser.setAvatarUrl(userInfo.getString("avatarUrl"));
-                    wxuserMapper.insert(wxuser);
+                    //wxuserMapper.insert(wxuser);
                 }
             }
         }
