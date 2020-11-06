@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="core.dao.AccountMapMapper">
+  <resultMap id="BaseResultMap" type="core.entity.AccountMap">
+    <result column="Id" jdbcType="VARCHAR" property="id" />
+    <result column="FlowId" jdbcType="INTEGER" property="flowid" />
+    <result column="CompanyId" jdbcType="BIGINT" property="companyid" />
+    <result column="Amount" jdbcType="BIGINT" property="amount" />
+    <result column="Status" jdbcType="TINYINT" property="status" />
+    <result column="SYS_CTIME" jdbcType="TIMESTAMP" property="sysCtime" />
+    <result column="SYS_UTIME" jdbcType="TIMESTAMP" property="sysUtime" />
+    <result column="SYS_VALID" jdbcType="TINYINT" property="sysValid" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    Id, FlowId, CompanyId, Amount, Status, SYS_CTIME, SYS_UTIME, SYS_VALID
+  </sql>
+  <select id="selectByExample" parameterType="core.entity.AccountMapExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from T_YQT_AccountMap
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="core.entity.AccountMapExample">
+    delete from T_YQT_AccountMap
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="core.entity.AccountMap">
+    insert into T_YQT_AccountMap (Id, FlowId, CompanyId, 
+      Amount, Status, SYS_CTIME, 
+      SYS_UTIME, SYS_VALID)
+    values (#{id,jdbcType=VARCHAR}, #{flowid,jdbcType=INTEGER}, #{companyid,jdbcType=BIGINT}, 
+      #{amount,jdbcType=BIGINT}, #{status,jdbcType=TINYINT}, #{sysCtime,jdbcType=TIMESTAMP}, 
+      #{sysUtime,jdbcType=TIMESTAMP}, #{sysValid,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="core.entity.AccountMap">
+    insert into T_YQT_AccountMap
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="flowid != null">
+        FlowId,
+      </if>
+      <if test="companyid != null">
+        CompanyId,
+      </if>
+      <if test="amount != null">
+        Amount,
+      </if>
+      <if test="status != null">
+        Status,
+      </if>
+      <if test="sysCtime != null">
+        SYS_CTIME,
+      </if>
+      <if test="sysUtime != null">
+        SYS_UTIME,
+      </if>
+      <if test="sysValid != null">
+        SYS_VALID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="flowid != null">
+        #{flowid,jdbcType=INTEGER},
+      </if>
+      <if test="companyid != null">
+        #{companyid,jdbcType=BIGINT},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=BIGINT},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="sysCtime != null">
+        #{sysCtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysUtime != null">
+        #{sysUtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysValid != null">
+        #{sysValid,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="core.entity.AccountMapExample" resultType="java.lang.Long">
+    select count(*) from T_YQT_AccountMap
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update T_YQT_AccountMap
+    <set>
+      <if test="record.id != null">
+        Id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.flowid != null">
+        FlowId = #{record.flowid,jdbcType=INTEGER},
+      </if>
+      <if test="record.companyid != null">
+        CompanyId = #{record.companyid,jdbcType=BIGINT},
+      </if>
+      <if test="record.amount != null">
+        Amount = #{record.amount,jdbcType=BIGINT},
+      </if>
+      <if test="record.status != null">
+        Status = #{record.status,jdbcType=TINYINT},
+      </if>
+      <if test="record.sysCtime != null">
+        SYS_CTIME = #{record.sysCtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.sysUtime != null">
+        SYS_UTIME = #{record.sysUtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.sysValid != null">
+        SYS_VALID = #{record.sysValid,jdbcType=TINYINT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update T_YQT_AccountMap
+    set Id = #{record.id,jdbcType=VARCHAR},
+      FlowId = #{record.flowid,jdbcType=INTEGER},
+      CompanyId = #{record.companyid,jdbcType=BIGINT},
+      Amount = #{record.amount,jdbcType=BIGINT},
+      Status = #{record.status,jdbcType=TINYINT},
+      SYS_CTIME = #{record.sysCtime,jdbcType=TIMESTAMP},
+      SYS_UTIME = #{record.sysUtime,jdbcType=TIMESTAMP},
+      SYS_VALID = #{record.sysValid,jdbcType=TINYINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>
